@@ -429,6 +429,10 @@ namespace diff_drive_controller{
     {
       curr_cmd.lin = 0.0;
       curr_cmd.ang = 0.0;
+      //MWH 
+      ROS_DEBUG_STREAM_NAMED(name_,
+                             "Brake because cmd_vel has timeout ");
+                             
     }
 
     // Limit velocities and accelerations:
@@ -458,6 +462,11 @@ namespace diff_drive_controller{
     {
       left_wheel_joints_[i].setCommand(vel_left);
       right_wheel_joints_[i].setCommand(vel_right);
+      //mwh
+      ROS_DEBUG_STREAM_NAMED(name_,
+                             "Set velocity: "
+                             << "left: "   << vel_left << ", "
+                             << "right: "   << vel_right );
     }
   }
 
